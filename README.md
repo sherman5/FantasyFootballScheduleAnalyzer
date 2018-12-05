@@ -4,6 +4,10 @@ Do you feel like your team is better than the standings show? It may be because
 you had an unlucky schedule this year. This tool lets you see just how big an
 impact this year's schedule had on your league.
 
+The script `ScheduleAnalyzer.py` simulates 100,000 hypothetical seasons using
+a random schedule each time. The results show how well each team in the league
+would do on average, and how much this season's schedule effected them.
+
 ## Basic Use
 
 The usage of this script looks like:
@@ -58,21 +62,24 @@ Here is a breakdown of the output:
 
 **Team** - Team name abbreviation  
 **Seed** - Actual seed going into playoffs  
-**Avg Seed** - Average seed over 100,000 different simulated schedules  
+**Avg Seed** - Average seed over 100,000 simulated schedules  
 **Seed Diff** - The difference between the expected and actual seed  
-**Wins** - Actual number of wins going into playoffs  
-**Avg Wins** - Average number of wins over 100,000 different simulated schedules  
+**Wins** - Actual number of regular season wins  
+**Avg Wins** - Average number of wins over 100,000 simulated schedules  
 **Win Diff** - The difference between the expected and actual number of wins  
 **Playoff Chance** - The percentage of simulated schedules that resulted in this
     team making the playoffs  
 
-Let's look at the results from the perspective of the *MADD* team since they
+Let's look at the results from the perspective of the MADD team since they
 had a rather unfortunate schedule this year. On average they finish
 somewhere around the 3rd seed with 9.27 wins, instead of the 5th seed with 8 wins.
 While 1.27 less wins than average doesn't seem like alot, the schedule was also
-favorable to **TM9** and **LINE**, enough so that *MADD* didn't make
+favorable to TM9 and LINE, enough so that MADD didn't make
 the playoffs. The stat that really matters is the last one, **Playoff Chance**.
-*MADD* would've made the playoffs in 86.5% of all possible schedules.
+MADD would've made the playoffs in 86.5% of all possible schedules.
+
+These results also show just how dominant DUFU was, they made the playoffs
+in every possible schedule and won 11.73 games on average.
 
 ## Passing a CSV File
 
