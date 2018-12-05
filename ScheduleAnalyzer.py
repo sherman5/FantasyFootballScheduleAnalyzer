@@ -48,7 +48,7 @@ for the code to get information from the ESPN Fantasy API.
 
 usage_msg = """
 Usage:
-  python3 ff_schedule_sensitivity.py arg1 arg2 arg3 [optional args]
+  python3 ScheduleAnalyzer.py arg1 arg2 arg3 [optional args]
 
   arg1 = league ID
   arg2 = number of weeks in regular season
@@ -59,7 +59,7 @@ Optional Args:
   --use-csv /path/to/file.csv
 
 For more Information:
-  python3 ff_schedule_sensitivity.py --help
+  python3 ScheduleAnalyzer.py --help
 """
 
 ################################## functions ###################################
@@ -120,8 +120,10 @@ def get_espn_data(league_id, year):
     return teams, points, wins
 
 # read data from local csv file
-def get_csv_data(csv_path):
+def get_csv_data(csv_path, n_weeks):
     data = pd.read_csv(csv_path)
+    if len(data.columns) - 2 != n_weeks:
+        exit_with_error("Number of regular season weeks does not match csv")
     teams = list(data.iloc[:,0:1].values.flatten())
     wins = dict(zip(teams, list(data.iloc[:,1:2].values.flatten())))
     points = defaultdict(list)
@@ -132,9 +134,9 @@ def get_csv_data(csv_path):
 
 # parse the input data and return:
 # teams (list), points (dict), wins (dict)
-def get_data(league_id, year, use_csv, csv_path):
+def get_data(league_id, year, use_csv, csv_path, n_weeks):
     if use_csv:
-        return get_csv_data(csv_path)
+        return get_csv_data(csv_path, n_weeks)
     else:
         return get_espn_data(league_id, year)
 
@@ -196,7 +198,7 @@ print("Year: " + year)
 ################################## main script #################################
 
 # get raw points data
-teams, points, actual_wins = get_data(league_id, year, use_csv, csv_path)
+teams, points, actual_wins = get_data(league_id, year, use_csv, csv_path, final_week)
 
 # get total points
 total_points = dict.fromkeys(teams, 0)
