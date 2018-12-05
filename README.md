@@ -1,16 +1,8 @@
 # Fantasy Football Schedule Analyzer
 
-Do you feel like your team is better than the 
-
-With only a dozen or so regular season games, the schedule in fantasy football
-can be pretty important.
-
-When your team is playing well and yet your losing too many games, it can seem
-like the schedule is at fault. After all, it's usually decided randomly and with
-only a dozen or so regular season games who you're matched up with really
-matters. This script provides a way to analyze the effect your particular
-fantasy schedule had this year, and shows how well each team would do on
-average across all possible schedules.
+Do you feel like your team is better than the standings show? It may be because
+you had an unlucky schedule this year. This tool lets you see just how big an
+impact this year's schedule had on your league.
 
 ## Basic Use
 
